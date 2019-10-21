@@ -1,10 +1,12 @@
-#FROM daocloud.io/ubuntu:trusty
+#ROM daocloud.io/ubuntu:trusty
 FROM ubuntu:16.04
 #FROM gcc:latest
 #FROM rust:1.31
 MAINTAINER ping.li <ping.li@conflux-chain.org>
 
 #RUN cargo install --path .
+RUN sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
+RUN apt-get clean
 
 RUN apt-get update
 RUN apt-get install -y software-properties-common
@@ -12,7 +14,8 @@ RUN apt-get install -y --no-install-recommends apt-utils
 RUN apt-get install -y git \
                        curl \
                        cmake \
-                       protobuf-compiler
+                       protobuf-compiler \
+                       pkg-config
 RUN set -x && \  
     add-apt-repository ppa:ethereum/ethereum  && \
     apt-get update && \ 
