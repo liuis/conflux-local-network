@@ -16,6 +16,8 @@ docker pull liqiazero/conflux-chain:v1
 docker run --name node1 -p 12537:12537 -d conflux-chain:v1
 ```
 
+# TODO  docker-compose
+
 To start the network:
 
 ```bash
