@@ -2,7 +2,7 @@
 Docker-compose based configuration to easily run locally deployed dev/test network
 
 
-if you don't use docker-compose, just docker && if you want build by yourself just run:
+if you don't use docker-compose, just docker && if you want build by yourself , just run:
 
 ```bash
 docker build -t conflux-chain:v1 .
