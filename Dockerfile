@@ -16,13 +16,14 @@ RUN apt-get install -y git \
                        cmake \
                        protobuf-compiler \
                        pkg-config \
-                       libssl-dev
+                       libssl-dev \
+                       tree
 RUN set -x && \  
     add-apt-repository ppa:ethereum/ethereum  && \
     apt-get update && \ 
-    apt-get install -y python \
-                       python-dev \
-                       python-pip  \
+    apt-get install -y python3 \
+                       python3-dev \
+                       python3-pip  \
                        clang \
                        libsqlite3-dev \ 
                        solc  
@@ -38,17 +39,23 @@ RUN /usr/bin/rustup-init.sh -y
 ENV PATH="$HOME/.cargo/bin:${PATH}"
 #ARG CURRVERSION = git checkout `git describe --tags `git rev-list --tags --max-count=1`  
 
-RUN git clone -b 'v0.1.9' --single-branch --depth 1 https://github.com/Conflux-Chain/conflux-rust.git  
+RUN git clone -b master --single-branch --depth 1 https://github.com/Conflux-Chain/conflux-rust.git  
       
     #var currVersion = git checkout `git describe --tags `git rev-list --tags --max-count=1` && \
     # build in release mode
 #RUN which cargo
 #RUN export PATH="$PATH:$HOME/.cargo/bin" >> $HOME/.bashrc
 #RUN source $HOME/.bashrc
-RUN cd conflux-rust && $HOME/.cargo/bin/cargo -V &&  $HOME/.cargo/bin/cargo update && $HOME/.cargo/bin/cargo build --release && \ 
+RUN cd conflux-rust && $HOME/.cargo/bin/cargo -V &&  $HOME/.cargo/bin/cargo update && $HOME/.cargo/bin/cargo build --release  
+
     # start test case 
-    ./dev-support/dep_pip3.sh && \ 
-    ./dev-support/test.sh  && \ 
-#WORKDIR conflux-rust 
-#EXPOSE 80
-CMD ["bash"]
+#    ./dev-support/dep_pip3.sh && \ 
+#    ./dev-support/test.sh  && \ 
+WORKDIR conflux-rust 
+COPY conflux.conf ./run/ 
+COPY start.sh . 
+RUN tree -L 2 
+EXPOSE 14629 
+EXPOSE 19629 
+EXPOSE 12537 
+CMD ["./start.sh"]

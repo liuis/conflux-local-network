@@ -1,6 +1,18 @@
 # conflux-local-network
 Docker-compose based configuration to easily run locally deployed dev/test network
 
+
+if you don't use docker-compose, just docker run:
+
+```bash
+docker build -t conflux-chain:v1 .
+
+```
+
+```bash
+docker run --name node1 -p 12537:12537 -d conflux-chain:v1
+```
+
 To start the network:
 
 ```bash
