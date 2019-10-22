@@ -2,14 +2,17 @@
 Docker-compose based configuration to easily run locally deployed dev/test network
 
 
-if you don't use docker-compose, just docker run:
+if you don't use docker-compose, just docker && if you want build by yourself just run:
 
 ```bash
 docker build -t conflux-chain:v1 .
 
 ```
+# USE:
 
 ```bash
+docker pull liqiazero/conflux-chain:v1
+
 docker run --name node1 -p 12537:12537 -d conflux-chain:v1
 ```
 
