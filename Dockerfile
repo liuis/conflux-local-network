@@ -57,9 +57,9 @@ RUN  pip3 install pysha3
 
 WORKDIR conflux-rust 
 COPY conflux.conf ./run/ 
-
+RUN echo 'genesis_accounts="genesis_accounts.toml"' >> ./run/default.toml
 COPY wallet-generator.py ./run/
-
+RUN chmod a+x ./run/wallet-generator.py
 RUN  ./run/wallet-generator.py
 
 COPY start.sh . 
