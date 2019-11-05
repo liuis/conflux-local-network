@@ -51,8 +51,9 @@ RUN cd conflux-rust && $HOME/.cargo/bin/cargo -V &&  $HOME/.cargo/bin/cargo upda
     # start test case 
 #    ./dev-support/dep_pip3.sh && \ 
 #    ./dev-support/test.sh  && \ 
-RUN  pip install ecdsa
-RUN  pip install pysha3
+RUN  apt-get install python3-pip
+RUN  pip3 install ecdsa
+RUN  pip3 install pysha3
 
 WORKDIR conflux-rust 
 COPY conflux.conf ./run/ 
