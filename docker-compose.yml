@@ -4,7 +4,7 @@ services:
   node1:
     build: .
     container_name: conflux-chain
-    image: liqiazero/conflux-chain:${IMAGE_TAG:-latest}
+    image: liqiazero/conflux-chain:v2
     ports:
      - "12357:12357"
 
