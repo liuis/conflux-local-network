@@ -51,9 +51,18 @@ RUN cd conflux-rust && $HOME/.cargo/bin/cargo -V &&  $HOME/.cargo/bin/cargo upda
     # start test case 
 #    ./dev-support/dep_pip3.sh && \ 
 #    ./dev-support/test.sh  && \ 
+RUN  pip install ecdsa
+RUN  pip install pysha3
+
 WORKDIR conflux-rust 
 COPY conflux.conf ./run/ 
+
+COPY wallet-generator.py ./run/
+
+RUN  ./run/wallet-generator.py
+
 COPY start.sh . 
+
 RUN tree -L 2 
 EXPOSE 14629 
 EXPOSE 19629 
