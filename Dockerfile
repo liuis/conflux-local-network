@@ -39,7 +39,7 @@ RUN /usr/bin/rustup-init.sh -y
 ENV PATH="$HOME/.cargo/bin:${PATH}"
 #ARG CURRVERSION = git checkout `git describe --tags `git rev-list --tags --max-count=1`  
 
-RUN git clone -b master --single-branch --depth 1 https://github.com/Conflux-Chain/conflux-rust.git  
+RUN git clone -b v0.1.9 --single-branch --depth 1 https://github.com/Conflux-Chain/conflux-rust.git  
       
     #var currVersion = git checkout `git describe --tags `git rev-list --tags --max-count=1` && \
     # build in release mode
