@@ -11,9 +11,10 @@ docker build -t conflux-chain:v1 .
 # USE:
 
 ```bash
-docker pull liqiazero/conflux-chain:v1
+docker pull liqiazero/conflux-chain:v3
 
-docker run --name node1 -p 12537:12537 -d liqiazero/conflux-chain:v1
+
+docker run --name conflux-chain  -p 12537:12537 -d liqiazero/conflux-chain:v3
 ```
 
 if u want use docker-compose, just following:
