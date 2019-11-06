@@ -39,7 +39,7 @@ RUN /usr/bin/rustup-init.sh -y
 ENV PATH="$HOME/.cargo/bin:${PATH}"
 #ARG CURRVERSION = git checkout `git describe --tags `git rev-list --tags --max-count=1`  
 
-RUN git clone -b v0.1.9 --single-branch --depth 1 https://github.com/Conflux-Chain/conflux-rust.git  
+RUN git clone -b master --single-branch --depth 1 https://github.com/Conflux-Chain/conflux-rust.git  
       
     #var currVersion = git checkout `git describe --tags `git rev-list --tags --max-count=1` && \
     # build in release mode
@@ -55,15 +55,16 @@ RUN  apt-get install python3-pip
 RUN  pip3 install ecdsa
 RUN  pip3 install pysha3
 
-WORKDIR conflux-rust 
+WORKDIR conflux-rust
 COPY conflux.conf ./run/ 
-RUN echo 'genesis_accounts="genesis_accounts.toml"' >> ./run/default.toml
+COPY start.sh ./run/ 
+#RUN echo 'genesis_accounts="genesis_secrets.toml"' >> ./run/default.toml
 COPY wallet-generator.py ./run/
 RUN chmod a+x ./run/wallet-generator.py
-RUN  ./run/wallet-generator.py
+RUN cp target/release/conflux ./run/
+RUN cd ./run && ./wallet-generator.py 
 
-COPY start.sh . 
-
+WORKDIR run
 RUN tree -L 2 
 EXPOSE 14629 
 EXPOSE 19629 

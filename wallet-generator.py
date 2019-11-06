@@ -42,10 +42,11 @@ def genesis(fd,fd2):
       fd2.write('\n')
 
       fd2.write("address = " + "0x" + checksum_encode(address))
-      fd.write(address + " = 100")
+      #fd.write(address + "=\"100000000000000000000\"")
+      fd.write(priv.to_string().hex())
       fd.write('\n')
 
-fd = open("genesis_accounts.toml", 'w')
-fd2 = open("genesis_accounts2.toml", 'w')
+fd = open("genesis_secrets.txt", 'w')
+fd2 = open("genesis_accounts.toml", 'w')
 genesis(fd,fd2)
 fd.close()
