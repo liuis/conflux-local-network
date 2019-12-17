@@ -1,3 +1,8 @@
+[![Docker Pulls](https://img.shields.io/docker/pulls/liqiazero/conflux-chain.svg)](https://hub.docker.com/r/liqiazero/conflux-chain/)
+[![Docker Stars](https://img.shields.io/docker/stars/liqiazero/conflux-chain.svg)](https://hub.docker.com/r/liqiazero/conflux-chain/)
+
+
+
 # warning
 this repo run the conflux-chain node is the *test-mode*, just for test/dev environment, don't use this for the fromal online environment.
 
