@@ -39,7 +39,8 @@ RUN /usr/bin/rustup-init.sh -y
 ENV PATH="$HOME/.cargo/bin:${PATH}"
 #ARG CURRVERSION = git checkout `git describe --tags `git rev-list --tags --max-count=1`  
 
-RUN git clone -b master --single-branch --depth 1 https://github.com/Conflux-Chain/conflux-rust.git  
+#RUN git clone -b v0.1.10  --single-branch --depth 1 https://github.com/Conflux-Chain/conflux-rust.git  
+RUN git clone -b v0.1.10  --single-branch --depth 1 https://github.com/Conflux-Chain/conflux-rust.git  
       
     #var currVersion = git checkout `git describe --tags `git rev-list --tags --max-count=1` && \
     # build in release mode
@@ -69,4 +70,6 @@ RUN tree -L 2
 EXPOSE 14629 
 EXPOSE 19629 
 EXPOSE 12537 
+EXPOSE 32323
+EXPOSE 32323/udp
 CMD ["./start.sh"]
