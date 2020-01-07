@@ -1,10 +1,10 @@
-version: '3'
+version: 'v0.1.10'
 services:
 
   conflux-chain1:
     build: .
     container_name: conflux-chain
-    image: liqiazero/conflux-chain:v3
+    image: liqiazero/conflux-chain:v0.1.10
     ports:
      - "12357:12357"
 
