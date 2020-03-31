@@ -14,16 +14,16 @@ Docker-compose based configuration to easily run locally deployed dev/test netwo
 if you don't use docker-compose, just docker && if you want build by yourself , just run:
 
 ```bash
-docker build -t conflux-chain:v0.1.10 .
+docker build -t conflux-chain:v0.2.4 .
 
 ```
 # USE:
 
 ```bash
-docker pull liqiazero/conflux-chain:v0.1.10
+docker pull liqiazero/conflux-chain:v0.2.4
 
 
-docker run --name conflux-chain  -p 12537:12537 -p 32323:32323 -p 32323:32323/udp -p 14629:14629 -p 12539:12539  -d liqiazero/conflux-chain:v0.1.10
+docker run --name conflux-chain  -p 12537:12537 -p 32323:32323 -p 32323:32323/udp -p 14629:14629 -p 12539:12539 -p 19629:19629 -d liqiazero/conflux-chain:v0.2.4
 
 ```
 
