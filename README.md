@@ -2,10 +2,8 @@
 [![Docker Stars](https://img.shields.io/docker/stars/liqiazero/conflux-chain.svg)](https://hub.docker.com/r/liqiazero/conflux-chain/)
 
 
-
 # warning
-this repo run the conflux-chain node is the *test-mode*, just for test/dev environment, don't use this for the fromal online environment.
-
+## this repo run the conflux-chain node is the *test-mode*, just for test/dev environment, don't use this for the fromal online environment.
 
 # conflux-local-network
 Docker-compose based configuration to easily run locally deployed dev/test network
